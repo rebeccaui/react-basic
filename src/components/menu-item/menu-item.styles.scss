@@ -9,17 +9,22 @@
     margin: 0 7.5px 15px;
     overflow: hidden;
 
+    & .background-image {
+      transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+
     &:hover {
       cursor: pointer;
 
       // cubic-bezier is the speed at which the transformation occurs
       & .background-image {
         transform: scale(1.1);
-        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
       }
 
       & .content {
         opacity: 0.9;
+        transition: ease all 1000ms;
         //background-color: rgb(129, 243, 243);
       }
     }
@@ -50,6 +55,7 @@
       background-color: white;
       opacity: 0.7;
       position: absolute;
+      transition: ease all 1000ms;
       .title {
         font-weight: bold;
         margin-bottom: 6px;
