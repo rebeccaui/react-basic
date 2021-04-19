@@ -3,6 +3,8 @@ import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import { signInWithGoogle } from '../../firebase/firebase.util';
+
 import './sign-in.styles.scss';
 
 // keeping state in class component becausewe are handling user input
@@ -53,9 +55,10 @@ class SignIn extends React.Component {
                         required 
                     />
 
-                    <CustomButton type='submit'>
-                    Sign in
-                    </CustomButton>
+                    <div className="button-container">
+                        <CustomButton type='submit'>Sign in</CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
+                    </div>
                 </form>
             </div>
         )
