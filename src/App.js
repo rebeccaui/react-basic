@@ -19,22 +19,30 @@ class App extends React.Component {
 
 
   unsubscribeFromAuth = null
-
+  
+  // onAuthStateChanged() connection is always open once App.js is mounted
+  // therefore we must unsubscribe from it when the user logs out
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      
-      // documentSnapshot: .exists() returns a boolean
-      //.data() returns JSON object of the document
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          console.log(snapShot);
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          }, () => {
+            console.log(this.state);
+          })
         })
+      } else {
+        // if userAuth is null
+        this.setState({
+          currentUser: userAuth
+        });
       }
-      
-      // this.setState({ currentUser: user });
-      // console.log(user);
     })
   }
 
