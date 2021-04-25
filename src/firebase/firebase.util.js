@@ -12,6 +12,8 @@ const config ={
     measurementId: "G-VHJJ7YCZBC"
 };
 
+// This function takes the user we get from Authentication
+// and stores the info in our database
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
 
@@ -34,6 +36,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
             console.log("error creating user", error.message);
         }
     }
+    return userRef;
     // console.log(snapShot);
 }
 
