@@ -19,7 +19,7 @@ class App extends React.Component {
 
 
   unsubscribeFromAuth = null
-  
+
   // onAuthStateChanged() connection is always open once App.js is mounted
   // therefore we must unsubscribe from it when the user logs out
   componentDidMount() {
@@ -33,10 +33,8 @@ class App extends React.Component {
               id: snapShot.id,
               ...snapShot.data()
             }
-          }, () => {
-            console.log(this.state);
-          })
-        })
+          });
+        });
       } else {
         // if userAuth is null
         this.setState({
