@@ -21,6 +21,9 @@
       border: 1px solid black;
       transition: all ease 0.3s;
     }
+    &:focus {
+      outline: none !important;
+    }
 
     &.google-sign-in {
       background-color: #f37336;
