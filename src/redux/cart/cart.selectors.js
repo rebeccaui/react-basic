@@ -15,6 +15,11 @@ export const selectCartItems = createSelector(
     cart => cart.cartItems
 )
 
+export const selectCartHidden = createSelector(
+    [selectCart],
+    cart => cart.hidden
+)
+
 // function that passes cart items into function that give us final cart item count
 export const selectCartItemsCount = createSelector(
     [selectCartItems],
