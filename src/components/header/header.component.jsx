@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { auth } from '../../firebase/firebase.util';
+import CartIcon from '../cart-icon/cart-icon.component';
 
 import { ReactComponent as Logo } from '../../assets/kakashi.svg';
 
@@ -26,6 +27,8 @@ const Header = ({ currentUser}) => (
                     <Link className='option' to='/signin'>SIGN IN</Link>
                 )
             }
+            <CartIcon />
+            
             {/* <Link className='options' to='/'>
                 <Logo className='logo' />
             </Link> */}
