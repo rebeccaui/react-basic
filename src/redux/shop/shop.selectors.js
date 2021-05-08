@@ -7,6 +7,12 @@ const selectShop = state => state.shop;
 export const selectCollections = createSelector(
     [selectShop],
     shop => shop.collections
+);
+
+// this function creates selectCollectionsForPreview 
+export const selectCollectionsForPreview = createSelector(
+    [selectCollections],
+    collections => Object.keys(collections).map(key => collections[key])
 )
 
 // this function creates selectCollection (singular) when collection is clicked
