@@ -1,4 +1,4 @@
-# React Store (In Progress)
+# GraphQL React Store (In Progress)
 
 Languages Used: 
 - React
