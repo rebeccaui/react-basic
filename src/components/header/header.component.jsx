@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { auth } from '../../firebase/firebase.util';
-import CartIcon from '../cart-icon/cart-icon.component';
+import {default as CartIcon} from '../cart-icon/cart-icon.container';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
-import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import { ReactComponent as Logo } from '../../assets/kakashi.svg';
@@ -47,8 +46,7 @@ const Header = ({ currentUser, hidden }) => (
 
 // function to pull state from rootreducer to set current user
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-    hidden: selectCartHidden
+    currentUser: selectCurrentUser
 });
 
 export default connect(mapStateToProps)(Header);
